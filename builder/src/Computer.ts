@@ -1,5 +1,5 @@
 
-import { ComputerBuilder } from "./Builder";
+import { ComputerBuilder } from "./ComputerBuilder";
 
 export class Computer {
     private _motherboard: string;
@@ -12,6 +12,19 @@ export class Computer {
     private _gpu: string; 
     private _hardDisk: string; 
     private _processor: string;
+    
+    constructor(builder: ComputerBuilder) {
+        this._motherboard = builder.motherboard;
+        this._monitor = builder.monitor;
+        this._mouse = builder.mouse;
+        this._keyboard = builder.keyboard;
+        this._printer = builder.printer;
+        this._speaker = builder.speaker;
+        this._powerSupply = builder.powerSupply; 
+        this._gpu = builder.gpu; 
+        this._hardDisk = builder.hardDisk; 
+        this._processor = builder.processor;       
+    }
     
     public get motherboard(): string {
         return this._motherboard;
@@ -44,16 +57,4 @@ export class Computer {
         return this._processor;
     }
     
-    constructor(builder: ComputerBuilder) {
-        this._motherboard = builder.motherboard;
-        this._monitor = builder.monitor;
-        this._mouse = builder.mouse;
-        this._keyboard = builder.keyboard;
-        this._printer = builder.printer;
-        this._speaker = builder.speaker;
-        this._powerSupply = builder.powerSupply; 
-        this._gpu = builder.gpu; 
-        this._hardDisk = builder.hardDisk; 
-        this._processor = builder.processor;       
-    }
 }    
